@@ -6,9 +6,11 @@
 #define STRINGSTACKQUEUEOFSTRINGSTACK_STRINGSTACK_H
 
 #include <string.h>
-struct StringStack{
-    StringStack *next;
-};
+struct StringStackElem;
+void putStringStackElem(*current);
+void takeStringStackElem(*current);
+void deleteStringStackElem(*current);
+
 
 
 #endif //STRINGSTACKQUEUEOFSTRINGSTACK_STRINGSTACK_H
