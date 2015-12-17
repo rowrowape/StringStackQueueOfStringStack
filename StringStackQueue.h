@@ -5,7 +5,7 @@
 #ifndef STRINGSTACKQUEUEOFSTRINGSTACK_STRINGSTACKQUEUE_H
 #define STRINGSTACKQUEUEOFSTRINGSTACK_STRINGSTACKQUEUE_H
 
-#include "StringStack.h"
+#include "StringStack.cpp"
 
 struct StringStackQueue;
 

@@ -46,3 +46,14 @@ void clear(StringStackQueue &a) {
         del(a);
     }
 }
+
+//retrives and remove element
+StringStackElem *poll(StringStackQueue &a) {
+    if (a.size > 0) {
+        StringStackQueueElem *bufLink = a.head;
+        StringStackQueueElem outputElem = bufLink;
+        a.head = a.head->next;
+        delete *bufLink;
+        return outputElem;
+    }
+}
