@@ -11,7 +11,6 @@ struct StringStackQueue;
 
 struct StringStackQueueElem;
 
-void init(StringStackQueue &a);
 
 void clear(StringStackQueue &a);
 

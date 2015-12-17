@@ -32,7 +32,7 @@ void push(StringStackQueue &a, StringStackElem in) {
     a.size++;
 }
 
-void del(StringStackQueue &a) {
+void remove(StringStackQueue &a) {
     if (a.size > 0) {
         StringStackQueueElem *bufLink = a.head;
         a.head = a.head->next;
@@ -61,4 +61,9 @@ StringStackElem *poll(StringStackQueue &a) {
 //retrieves but doesn`t remove head element
 StringStackElem *peek(StringStackQueue &a) {
     return a.head;
+}
+
+void del(StringStackQueue &a) {
+    clear(a);
+    a = 0;
 }
