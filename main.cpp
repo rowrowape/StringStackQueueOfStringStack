@@ -18,9 +18,15 @@ int main() {
         "3. Delete higher element from stack" << endl;
         cout << "5. Clear stack" << endl << "6.Delete stack" << endl;
         cout << "7. Push stack to queue" << endl <<
-                "8. Take and delete stack from queue" << endl << "9. Clear queue" << endl;
+        "8. Take and delete stack from queue" << endl << "9. Clear queue" << endl;
         cout << "10. Exit" << endl;
+
+        cout << "Make your choose" << endl;
         cin >> key;
+        while (cin.fail()) {
+            cout << "Make your choose" << endl;
+            cin >> key;
+        }
         try {
             switch (key) {
                 case 1 : {
@@ -72,6 +78,7 @@ int main() {
                     }
                     clear(*a);
                     delete a;
+                    a = 0;
                     break;
                 }
                 case 7 : {
@@ -79,7 +86,7 @@ int main() {
                         cout << "You haven`t active stack";
                         break;
                     }
-                    push(queue, *a);
+                    push(queue, a);
                     a = 0;
                     break;
                 }

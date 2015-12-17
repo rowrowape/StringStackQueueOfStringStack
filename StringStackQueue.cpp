@@ -21,16 +21,17 @@ struct StringStackQueue {
     }
 };
 
-void push(StringStackQueue &a, StringStack in) {
+void push(StringStackQueue &a, StringStack *in) {
     StringStackQueueElem *elem = new StringStackQueueElem();
-    elem->value = &in;
-    a.tail = elem;
+    elem->value = in;
+
     if (a.size > 0) {
-        elem->next = a.tail;
+        a.tail->next = elem;
     } else {
         a.head = elem;
         elem->next = 0;
     }
+    a.tail = elem;
     a.size++;
 }
 
