@@ -2,6 +2,7 @@
 // Created by awemath on 17.12.15.
 //
 #include "StringStack.cpp"
+
 using namespace std;
 struct StringStackQueueElem {
     StringStack *value;
@@ -36,6 +37,8 @@ void remove(StringStackQueue &a) {
         a.head = a.head->next;
         a.size--;
         delete bufLink;
+    } else {
+        throw "StringStackQueue is empty!";
     }
 }
 
@@ -53,12 +56,18 @@ StringStack *poll(StringStackQueue &a) {
         a.head = a.head->next;
         delete bufLink;
         return outputElem.value;
+    } else {
+        throw "StringStackQueue is empty!";
     }
 }
 
 //retrieves but doesn`t remove head element
 StringStack *peek(StringStackQueue &a) {
-    return a.head->value;
+    if (a.size > 0) {
+        return a.head->value;
+    } else {
+        throw "StringStackQueue is empty!";
+    }
 }
 
 void del(StringStackQueue &a) {
