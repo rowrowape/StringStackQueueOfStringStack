@@ -34,7 +34,7 @@ string takeStringStackElem(StringStack a){
 }
 
 void deleteStringStackElem(StringStack &a){
-    StringStackQueueElem *bufLink = a.first;
+    StringStackElem *bufLink = a.first;
     a.first = a.first->next;
     delete bufLink;
     return;
