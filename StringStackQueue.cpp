@@ -29,12 +29,20 @@ void push(StringStackQueue &a, StringStackElem in) {
     if (size == 0) {
         a.head = elem;
     }
+    a.size++;
 }
 
 void del(StringStackQueue &a) {
     if (a.size > 0) {
-        StringStackQueueElem* bufLink = a.head;
+        StringStackQueueElem *bufLink = a.head;
         a.head = a.head->next;
+        a.size--;
         delete bufLink;
+    }
+}
+
+void clear(StringStackQueue &a) {
+    while (a.size > 0) {
+        del(a);
     }
 }
