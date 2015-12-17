@@ -51,5 +51,6 @@ void clear(StringStack &a) {
     while (a.first) {
         deleteStringStackElem(a);
     }
+
     return;
 }
