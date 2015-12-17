@@ -21,11 +21,11 @@ struct StringStackQueue {
 };
 
 void push(StringStackQueue &a, StringStack in) {
-    StringStackQueueElem elem;
-    elem.value = &in;
-    a.tail = &elem;
+    StringStackQueueElem* elem = new StringStackElem();
+    (*elem).value = &in;
+    a.tail = elem;
     if (a.size == 0) {
-        a.head = &elem;
+        a.head = elem;
     }
     a.size++;
 }
