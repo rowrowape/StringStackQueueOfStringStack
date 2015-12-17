@@ -56,8 +56,12 @@ string pollStringStackElem(StringStack &a) {
 
 
 void clear(StringStack &a) {
-    while (a.first) {
-        deleteStringStackElem(a);
+    if (a.first) {
+        while (a.first) {
+            deleteStringStackElem(a);
+        }
+    } else {
+        cout << "the stack is empty";
     }
 
     return;
