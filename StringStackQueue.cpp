@@ -47,7 +47,7 @@ void clear(StringStackQueue &a) {
     }
 }
 
-//retrives and remove element
+//retrieves and remove head element
 StringStackElem *poll(StringStackQueue &a) {
     if (a.size > 0) {
         StringStackQueueElem *bufLink = a.head;
@@ -56,4 +56,9 @@ StringStackElem *poll(StringStackQueue &a) {
         delete *bufLink;
         return outputElem;
     }
+}
+
+//retrieves but doesn`t remove head element
+StringStackElem *peek(StringStackQueue &a) {
+    return a.head;
 }
