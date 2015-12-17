@@ -16,9 +16,9 @@ struct StringStackElem{
 
 void putStringStackElem(StringStack &a, string value)
 {
-    //work with null object
     if (a.first == 0)
     {
+        a.first = new StringStackElem;
         a.first->next = 0;
         a.first->value = value;
         return;
