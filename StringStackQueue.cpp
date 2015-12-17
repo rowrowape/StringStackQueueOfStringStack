@@ -22,11 +22,14 @@ struct StringStackQueue {
 };
 
 void push(StringStackQueue &a, StringStack in) {
-    StringStackQueueElem elem;
-    elem.value = &in;
-    a.tail = &elem;
-    if (a.size == 0) {
-        a.head = &elem;
+    StringStackQueueElem *elem = new StringStackQueueElem();
+    elem->value = &in;
+    a.tail = elem;
+    if (a.size > 0) {
+        elem->next = a.tail;
+    } else {
+        a.head = elem;
+        elem->next = 0;
     }
     a.size++;
 }
@@ -52,10 +55,9 @@ void clear(StringStackQueue &a) {
 StringStack *poll(StringStackQueue &a) {
     if (a.size > 0) {
         StringStackQueueElem *bufLink = a.head;
-        StringStackQueueElem outputElem = *bufLink;
-        a.head = a.head->next;
-        delete bufLink;
-        return outputElem.value;
+        StringStack *output = a.head->value;
+        remove(a);
+        return output;
     } else {
         throw "StringStackQueue is empty!";
     }
