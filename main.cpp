@@ -35,7 +35,8 @@ int main() {
                         cout << "You haven`t active stack";
                         break;
                     }
-                    cin >> value;
+                    cin.ignore();
+                    getline(cin, value);
                     putStringStackElem(*a, value);
                     break;
                 }
@@ -97,6 +98,7 @@ int main() {
             cout << s;
             cin.get();
         }
+        cout << endl << endl;
     }
     return 0;
 }
