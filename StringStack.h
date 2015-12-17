@@ -4,8 +4,8 @@
 #include <string.h>
 struct StringStackElem;
 void putStringStackElem(StringStack &a, string &value);
-void takeStringStackElem(*current);
-void deleteStringStackElem(*current);
+void takeStringStackElem(StringStack &a);
+void deleteStringStackElem(StringStack &a);
 
 
 
