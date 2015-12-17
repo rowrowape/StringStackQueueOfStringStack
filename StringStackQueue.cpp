@@ -30,3 +30,11 @@ void push(StringStackQueue &a, StringStackElem in) {
         a.head = elem;
     }
 }
+
+void del(StringStackQueue &a) {
+    if (a.size > 0) {
+        StringStackQueueElem* bufLink = a.head;
+        a.head = a.head->next;
+        delete bufLink;
+    }
+}
