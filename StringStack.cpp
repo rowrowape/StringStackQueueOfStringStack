@@ -30,18 +30,22 @@ void putStringStackElem(StringStack &a, string value) {
 }
 
 string takeStringStackElem(StringStack a) {
-    if (a.first){
-    return a.first->value;
+    if (a.first) {
+        return a.first->value;
     } else {
         return "the stack is empty";
     }
 }
 
 void deleteStringStackElem(StringStack &a) {
-    StringStackElem *bufLink = a.first;
-    a.first = a.first->next;
-    delete bufLink;
-    return;
+    if (a.first) {
+        StringStackElem *bufLink = a.first;
+        a.first = a.first->next;
+        delete bufLink;
+        return;
+    } else {
+        cout << "the stack is empty";
+    }
 }
 
 string pollStringStackElem(StringStack &a) {
