@@ -7,20 +7,22 @@
 
 #include "StringStack.h"
 
+struct StringStackQueue;
+
 struct StringStackQueueElem;
 
-void init(StringStackQueueElem &a);
+void init(StringStackQueue &a);
 
-void clear(StringStackQueueElem &a);
+void clear(StringStackQueue &a);
 
-void del(StringStackQueueElem &a);
+void del(StringStackQueue &a);
 
-StringStackElem *poll(StringStackQueueElem &a);
+StringStackElem *poll(StringStackQueue &a);
 
-StringStackElem *peek(StringStackQueueElem &a);
+StringStackElem *peek(StringStackQueue &a);
 
-void remove(StringStackQueueElem &a);
+void remove(StringStackQueue &a);
 
-void add(StringStackElem in);
+void push(StringStackQueue &a, StringStackElem in);
 
 #endif //STRINGSTACKQUEUEOFSTRINGSTACK_STRINGSTACKQUEUE_H
