@@ -8,12 +8,11 @@ StringStackElem *first;
         first = 0;
     }
 };
+
 struct StringStackElem{
     StringStackElem *next;
     string value;
 };
-
-
 
 void putStringStackElem(StringStack &a, string &value)
 {
@@ -34,6 +33,22 @@ string takeStringStackElem(StringStack &a){
     return a.first->value;
 }
 
+string pollStringStackElem(StringStack &a){
+    string buf = takeStringStackElem(a);
+    deleteStringStackElem(a);
+    return buf;
+}
+
 void deleteStringStackElem(StringStack &a){
-    delete a.first;
+    StringStackQueueElem *bufLink = a.first;
+    a.first = a.first->next;
+    delete bufLink;
+    return;
+}
+
+void clear(StringStack &a) {
+    while (a.first) {
+        deleteStringStackElem(a);
+    }
+    return;
 }
