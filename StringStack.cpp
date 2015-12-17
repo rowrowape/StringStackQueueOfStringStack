@@ -14,9 +14,10 @@ struct StringStackElem{
     string value;
 };
 
-void putStringStackElem(StringStack &a, string &value)
+void putStringStackElem(StringStack &a, string value)
 {
-    if (a.first = 0)
+    //work with null object
+    if (a.first == 0)
     {
         a.first->next = 0;
         a.first->value = value;
@@ -29,7 +30,7 @@ first = newElem;
     return;
 }
 
-string takeStringStackElem(StringStack &a){
+string takeStringStackElem(StringStack a){
     return a.first->value;
 }
 
