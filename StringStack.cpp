@@ -1,17 +1,16 @@
-#include "StringStack.h"
 #include <string>
 using namespace std;
+
+struct StringStackElem{
+    StringStackElem *next;
+    string value;
+};
 
 struct StringStack{
 StringStackElem *first;
     StringStack(){
         first = 0;
     }
-};
-
-struct StringStackElem{
-    StringStackElem *next;
-    string value;
 };
 
 void putStringStackElem(StringStack &a, string value)
@@ -24,20 +23,14 @@ void putStringStackElem(StringStack &a, string value)
         return;
     }
 StringStackElem newElem;
-newElem.next = first;
+newElem.next = a.first;
 newElem.value = value;
-first = newElem;
+a.first = &newElem;
     return;
 }
 
 string takeStringStackElem(StringStack a){
     return a.first->value;
-}
-
-string pollStringStackElem(StringStack &a){
-    string buf = takeStringStackElem(a);
-    deleteStringStackElem(a);
-    return buf;
 }
 
 void deleteStringStackElem(StringStack &a){
@@ -46,6 +39,13 @@ void deleteStringStackElem(StringStack &a){
     delete bufLink;
     return;
 }
+
+string pollStringStackElem(StringStack &a){
+    string buf = takeStringStackElem(a);
+    deleteStringStackElem(a);
+    return buf;
+}
+
 
 void clear(StringStack &a) {
     while (a.first) {
