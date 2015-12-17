@@ -16,7 +16,7 @@ struct StringStack {
 };
 
 void putStringStackElem(StringStack &a, string value) {
-    if (a.first == 0) {
+    if (!a.first) {
         a.first = new StringStackElem;
         a.first->next = 0;
         a.first->value = value;
@@ -30,7 +30,11 @@ void putStringStackElem(StringStack &a, string value) {
 }
 
 string takeStringStackElem(StringStack a) {
+    if (a.first){
     return a.first->value;
+    } else {
+        return "the stack is empty";
+    }
 }
 
 void deleteStringStackElem(StringStack &a) {
