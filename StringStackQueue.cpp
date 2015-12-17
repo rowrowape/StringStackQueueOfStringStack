@@ -23,7 +23,6 @@ struct StringStackQueue {
 void push(StringStackQueue &a, StringStack in) {
     StringStackQueueElem elem;
     elem.value = &in;
-    a.tail->next = &elem;
     a.tail = &elem;
     if (a.size == 0) {
         a.head = &elem;

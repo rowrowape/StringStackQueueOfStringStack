@@ -1,46 +1,46 @@
 #include <string>
+
 using namespace std;
 
-struct StringStackElem{
+struct StringStackElem {
     StringStackElem *next;
     string value;
 };
 
-struct StringStack{
-StringStackElem *first;
-    StringStack(){
+struct StringStack {
+    StringStackElem *first;
+
+    StringStack() {
         first = 0;
     }
 };
 
-void putStringStackElem(StringStack &a, string value)
-{
-    if (a.first == 0)
-    {
+void putStringStackElem(StringStack &a, string value) {
+    if (a.first == 0) {
         a.first = new StringStackElem;
         a.first->next = 0;
         a.first->value = value;
         return;
     }
-StringStackElem newElem;
-newElem.next = a.first;
-newElem.value = value;
-a.first = &newElem;
+    StringStackElem *newElem = new StringStackElem();
+    (*newElem).next = a.first;
+    (*newElem).value = value;
+    a.first = newElem;
     return;
 }
 
-string takeStringStackElem(StringStack a){
+string takeStringStackElem(StringStack a) {
     return a.first->value;
 }
 
-void deleteStringStackElem(StringStack &a){
+void deleteStringStackElem(StringStack &a) {
     StringStackElem *bufLink = a.first;
     a.first = a.first->next;
     delete bufLink;
     return;
 }
 
-string pollStringStackElem(StringStack &a){
+string pollStringStackElem(StringStack &a) {
     string buf = takeStringStackElem(a);
     deleteStringStackElem(a);
     return buf;
