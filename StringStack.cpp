@@ -33,7 +33,7 @@ string takeStringStackElem(StringStack a) {
     if (a.first) {
         return a.first->value;
     } else {
-        return "the stack is empty";
+        throw new string("the stack is empty");
     }
 }
 
@@ -56,12 +56,8 @@ string pollStringStackElem(StringStack &a) {
 
 
 void clear(StringStack &a) {
-    if (a.first) {
-        while (a.first) {
-            deleteStringStackElem(a);
-        }
-    } else {
-        cout << "the stack is empty";
+    while (a.first) {
+        deleteStringStackElem(a);
     }
 
     return;

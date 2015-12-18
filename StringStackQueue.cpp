@@ -42,7 +42,7 @@ void remove(StringStackQueue &a) {
         a.size--;
         delete bufLink;
     } else {
-        throw "StringStackQueue is empty!";
+        throw new string("StringStackQueue is empty!");
     }
 }
 
@@ -60,7 +60,7 @@ StringStack *poll(StringStackQueue &a) {
         remove(a);
         return output;
     } else {
-        throw "StringStackQueue is empty!";
+        throw new string("StringStackQueue is empty!");
     }
 }
 
@@ -69,7 +69,7 @@ StringStack *peek(StringStackQueue &a) {
     if (a.size > 0) {
         return a.head->value;
     } else {
-        throw "StringStackQueue is empty!";
+        throw new string("StringStackQueue is empty!");
     }
 }
 

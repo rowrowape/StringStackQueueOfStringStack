@@ -53,7 +53,11 @@ int main() {
                         cout << "You haven`t active stack";
                         break;
                     }
-                    deleteStringStackElem(*a);
+                    try {
+                        deleteStringStackElem(*a);
+                    } catch(string *str){
+                        cout << *str;
+                    }
                     break;
                 }
                 case 4 : {
@@ -61,7 +65,11 @@ int main() {
                         cout << "You haven`t active stack";
                         break;
                     }
-                    cout << takeStringStackElem(*a);
+                    try {
+                        cout << takeStringStackElem(*a);
+                    } catch (string *str){
+                        cout << *str;
+                    }
                     break;
                 }
                 case 5 : {
@@ -96,7 +104,11 @@ int main() {
                         cout << "You allready have active stack";
                         break;
                     }
-                    a = poll(queue);
+                    try {
+                        a = poll(queue);
+                    } catch (string *str) {
+                        cout << *str;
+                    }
                     break;
                 }
                 case 9 : {
