@@ -17,7 +17,7 @@ int main() {
         cout << "1. Create stack" << endl << "2. Enter higher element to stack" << endl <<
         "3. Delete higher element from stack" << endl;
         cout << "4. Print highest element from stack" << endl;
-        cout << "5. Clear stack" << endl << "6.Delete stack" << endl;
+        cout << "5. Clear stack" << endl << "6. Delete stack" << endl;
         cout << "7. Push stack to queue" << endl <<
         "8. Take and delete stack from queue" << endl << "9. Clear queue" << endl;
         cout << "10. Exit" << endl;
