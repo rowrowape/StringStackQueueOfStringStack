@@ -1,6 +1,5 @@
 #include <iostream>
 #include "StringStackQueue.cpp"
-#include <string>
 
 using namespace std;
 
@@ -8,26 +7,36 @@ void menu(string s) {
 
 }
 
+int readInt() {
+    int key;
+    cin >> key;
+    while (cin.fail()) {
+        cin.ignore(cin.rdbuf()->in_avail());
+        cin.clear();
+        cout << "Make your choose" << endl;
+        cin >> key;
+    }
+    return key;
+}
+
+
 int main() {
     StringStack *a = 0;
     StringStackQueue queue;
     string value;
     int key;
-    while (key != 10) {
+    while (key != 11) {
         cout << "1. Create stack" << endl << "2. Enter higher element to stack" << endl <<
         "3. Delete higher element from stack" << endl;
         cout << "4. Print highest element from stack" << endl;
         cout << "5. Clear stack" << endl << "6.Delete stack" << endl;
         cout << "7. Push stack to queue" << endl <<
-        "8. Take and delete stack from queue" << endl << "9. Clear queue" << endl;
-        cout << "10. Exit" << endl;
+        "8. Take and delete stack from queue" << endl << "9. Print queue" << endl;
+        cout << "10. Clear queue" << endl;
+        cout << "11. Exit" << endl;
 
         cout << "Make your choose" << endl;
-        cin >> key;
-        while (cin.fail()) {
-            cout << "Make your choose" << endl;
-            cin >> key;
-        }
+        key = readInt();
         try {
             switch (key) {
                 case 1 : {
@@ -55,7 +64,7 @@ int main() {
                     }
                     try {
                         deleteStringStackElem(*a);
-                    } catch(string *str){
+                    } catch (string *str) {
                         cout << *str;
                     }
                     break;
@@ -67,7 +76,7 @@ int main() {
                     }
                     try {
                         cout << takeStringStackElem(*a);
-                    } catch (string *str){
+                    } catch (string *str) {
                         cout << *str;
                     }
                     break;
@@ -112,13 +121,20 @@ int main() {
                     break;
                 }
                 case 9 : {
+                    try {
+                        print(queue);
+                    } catch (string *str) {
+                        cout << str;
+                    }
+                    break;
+                }
+                case 10 : {
                     clear(queue);
                     break;
                 }
             }
-        } catch (string s) {
+        } catch (string *s) {
             cout << s;
-            cin.get();
         }
         cout << endl << endl;
     }

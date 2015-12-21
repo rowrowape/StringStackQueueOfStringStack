@@ -76,3 +76,15 @@ StringStack *peek(StringStackQueue &a) {
 void del(StringStackQueue &a) {
     clear(a);
 }
+
+void print(StringStackQueue a) {
+    StringStackQueueElem *buf = a.head;
+    if (a.size <= 0) {
+        throw new string("StringStackQueue is empty!");
+    }
+    while (buf->next) {
+        cout << takeStringStackElem(*(buf->value)) << "\t";
+        buf = buf->next;
+    }
+    cout << takeStringStackElem(*(buf->value)) << endl;
+}
